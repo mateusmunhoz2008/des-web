@@ -1,4 +1,4 @@
-body {
+   body {
     color: white;
     font: 20px Arial, sans-serif;
   }
@@ -15,7 +15,13 @@ body {
     height: 100vh;
     z-index: -1;
     filter: blur(2px);
-}
+   }
+
+   a {
+    color: white;
+    text-decoration: none;
+    font: 20px Arial, sans-serif;
+   }
 
   .container {
     display: flex;
