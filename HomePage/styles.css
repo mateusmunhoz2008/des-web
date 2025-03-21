@@ -70,6 +70,13 @@ body {
   button {
       border-radius: 10px;
   }
+
+  .borda {
+    border: 2px solid black;
+    padding: 5px;
+    display: inline-block;
+   }
+
   
   /*
   CRIAR REDE
