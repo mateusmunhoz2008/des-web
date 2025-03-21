@@ -4,17 +4,15 @@ body {
   }
 
   .fundo {
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEjL34nnKY7nEqgJCngb2Grt5BM0ORFzNiQA&s");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-    }
+    background-size: cover;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEjL34nnKY7nEqgJCngb2Grt5BM0ORFzNiQA&s");
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    scale: 1.0;
+    
+  }
 
   .container {
     display: flex;
