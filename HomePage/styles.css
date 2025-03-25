@@ -80,20 +80,3 @@
    .borda {
        -webkit-text-stroke: 2px black;
    }
-
-
-   /*
-  CRIAR REDE
-  - docker network create minha-rede
-  - docker network ls
-  - docker network ls
-  
-  CRIAR SERVIDOR
-  - docker run -d --name servidor-web --network minha-rede nginx
-  
-  CRIAR BANCO
-  - docker run -d --name banco-dados [...]
-  
-  CRIAR APP WEB
-  - docker run -d --name aplicativo-client --network minha-rede ubuntu
-  */
