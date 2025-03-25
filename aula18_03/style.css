@@ -44,8 +44,18 @@ nav a {
     font-size: 30px;
 }
 
-.body_home {
+body {
     background-image: url('https://gileduardo.com.br/ifpr/dw/img/background.png');
+    background-size: 100% 100%; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    height: 100vh; 
+    margin: 0; 
+    font-family: Arial;
+}
+
+.fundo {
+    background-color: white;
     background-size: 100% 100%; 
     background-position: center center; 
     background-repeat: no-repeat;
