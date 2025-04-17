@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Flexbox</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <div class="control-group">
+                <h3>Cor</h3>
+                <input type="color" id="color" value="#3498db">
+            </div>
+            
+            <div class="control-group">
+                <h3>Formato</h3>
+                <select id="shape">
+                    <option value="square">Quadrado</option>
+                    <option value="circle">Círculo</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <h3>Tamanho (px)</h3>
+                <input type="number" id="size" min="50" max="200" value="100">
+            </div>
+
+            <div class="control-group">
+                <h3>Flex Direction</h3>
+                <select id="direction">
+                    <option value="row">row</option>
+                    <option value="row-reverse">row-reverse</option>
+                    <option value="column">column</option>
+                    <option value="column-reverse">column-reverse</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <h3>Justify Content</h3>
+                <select id="justify">
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="center">center</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <h3>Align Items</h3>
+                <select id="align">
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="center">center</option>
+                    <option value="stretch">stretch</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="flex-container" id="flexbox">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
