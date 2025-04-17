@@ -1,0 +1,101 @@
+body {
+    color: white;
+    font: 20px "Times New Roman", serif;
+}
+
+.fundo {
+    background-image: url("https://img.freepik.com/premium-photo/light-cyan-background-with-gentle-texture-light-blue-background-image-light-blue-texture-wallpaper_1020697-720516.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    filter: blur(2px);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font: 35px "Times New Roman", serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 1;
+}
+
+img {
+    border: 1px solid #333;
+    border-radius: 1000px;
+    box-shadow: 0 0 10px rgba(0, 0, 1, 0.5);
+    margin: 0px 20px;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: transparent;
+}
+
+.dropdown-content button {
+    background-color: white;
+    box-shadow: 0 1px 10px rgba(0, 0, 1, 0.5);
+    color: black;
+    padding: 10px 16px;
+    margin: 2px 0px;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.dropdown-content button:hover {
+    background-color: blanchedalmond;
+}
+
+button {
+    border-radius: 10px;
+}
+
+.borda {
+    -webkit-text-stroke: 1px black;
+}
+
+h1 {
+    color: white;
+    font: 50px "Times New Roman", serif;
+}
+
+nav {
+    display: flex; 
+    justify-content: center; 
+    align-items: top; 
+}
+
+p {
+    color: white;
+    text-decoration: none;
+    font: 20px "Times New Roman", serif;
+}
+
+.p-borda{
+    -webkit-text-stroke: 0.6px black;
+    text-align: center;
+}
