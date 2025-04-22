@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body { 
+    overflow: hidden;
+    justify-content: center; 
+    align-items: center; 
+    background-color: #ddd;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr 50px;
+    grid-template-areas: 
+        "header" 
+        "main" 
+        "footer";
+    min-height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background: darkblue;
+    color: darkblue;
+    font-size: 24px;
+    width: auto;
+}
+
+footer {
+    grid-area: footer;
+    background: darkblue;
+    color: darkblue;
+    font-size: 24px;
+    height: 80px;
+    width: auto;
+    margin-top: 100px;
+}
+
+.main {
+    grid-area: main;
+    padding:30px;
+}
+
+.caixa {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    max-width: 900px;
+    border: 10px solid darkblue;
+    background-color: #ddd;
+    margin-top: 100px;
+    text-align: center; 
+    place-items: center; 
+}
+
+.titulo {
+    text-align: center;
+}
+
+nav {
+    display: grid;
+    place-items: center;
+}
+
+img {
+    width: 80%;
+    height: 80%;
+    border-radius: 1000px;
+}
+
+p {
+    font-size: 20px;
+    color: blue;
+}
+
+h1 {
+    font-size: 40px;
+    color: darkred;
+}
+
+h2 {
+    font-size: 40px;
+    color: #ddd;
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse; 
+    width: 100%;
+}
+
+td, th {
+    padding: 8px; 
+    text-align: center;
+    border: none;
+}
+
+.linha_azul {
+    background-color: rgb(129, 125, 158);
+    margin: 0;
+}
+
+.linha_branca {
+    background-color: #ddd;
+}
+
+#texto {
+    color: blue;
+    animation-name: cores;
+    animation: cores 5s infinite;
+}
+
+@keyframes cores {
+    0% {
+        color: darkblue;
+        left: 0px;
+        right: 0px;
+    }
+    25% {
+        color: cyan;
+        left: 200px;
+        right: 0px;
+    }
+    50% {
+        color: chocolate;
+        left: 200px;
+        right: 200px;
+    }
+    75% {
+        color: orange;
+        left: 0px;
+        right: 200px;
+    }
+}
+
+td svg {
+    display: inline-block;
+    margin: 0 2px;
+}
+
+#aviao1{
+    width: 50px;
+    height: 100px;
+    position: relative;
+    animation-name: animacao_aviao1;
+    animation-duration: 4s;
+    animation-direction: foward;
+    animation-iteration-count: infinite;
+    transform: rotate(90deg);
+
+}
+
+#aviao2{
+    width: 50px;
+    height: 100px;
+    position: relative;
+    animation-name: animacao_aviao2;
+    animation-duration: 4s;
+    animation-direction: foward;
+    animation-iteration-count: infinite;
+    float: right;
+    transform: rotate(-90deg);
+}
+
+@keyframes animacao_aviao1 {
+    0% {left:0px;}
+    50% {left:660px; transform: rotate(-90deg);}
+    100% {left :0px;}
+}
+
+@keyframes animacao_aviao2 {
+    0% {right:0px;}
+    50% {right:660px; transform: rotate(90deg);}
+    100% {right:0px;}
+}
+
+@media (max-width: 800px) {
+    .caixa {
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+        border-width: 5px;
+        text-align: center;
+        place-items: center; 
+    }
+
+    table tr td:nth-child(2),
+    table tr td:nth-child(3),
+    table tr th:nth-child(2),
+    table tr th:nth-child(3) {
+        display: none;
+    }
+
+    table tr td:nth-child(1),
+    table tr td:nth-child(4),
+    table tr th:nth-child(1),
+    table tr th:nth-child(4) {
+        width: 50%;
+    }
+
+    header {
+        height: 80px;
+        padding: 10px 0;
+    }
+
+    #texto {
+        font-size: 24px;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .main {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}
