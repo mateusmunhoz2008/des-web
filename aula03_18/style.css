@@ -1,0 +1,82 @@
+header {
+    background: blue;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    border-bottom: 5px solid cyan;
+}
+
+nav {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+nav a img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    transition: filter 0.3s ease;
+}
+
+nav a:hover {
+    color: greenyellow;
+}
+
+nav a:hover img {
+    filter: sepia(1) saturate(400) hue-rotate(60deg);
+}
+
+
+p {
+    color: blue;
+    font-size: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 30px;
+    font-size: 30px;
+}
+
+body {
+    background-color: white;
+    background-size: 100% 100%; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    height: 100vh; 
+    margin: 0; 
+    font-family: Arial;
+}
+
+.fundo {
+    background-image: url('https://gileduardo.com.br/ifpr/dw/img/background.png');
+    background-size: 100% 100%; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    height: 100vh; 
+    margin: 0; 
+    font-family: Arial;
+}
+
+h1 {
+    color: blue;
+    margin-left: 15px;
+}
+
+ul {
+    color: blue;
+}
+
+.vertical-hr {
+    width: 2px;
+    height: 50px;
+    background-color: white;
+    margin: 0 10px;
+    display: inline-block;
+}
