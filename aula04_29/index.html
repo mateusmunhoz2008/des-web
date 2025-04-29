@@ -71,19 +71,11 @@
                 <div class="dashboard-card text-center bg-white text-secondary py-4">
                     <h5>Conceito</h5>
                     <hr>
-                    <h2>74</h2>
+                    <h2>B</h2>
                 </div>
             </div>
             <div class="col">
-                <div class="dashboard-card text-center bg-white text-secondary py-4">
-                    <div class="col-md-7">
-                        <input type="range" class="form-range range-bar">
-                        <div class="dashboard-card">
-                            <h5 class="card-header">Frequências</h5>
-                            <div id="barchart" style="width: 100%; height: 200px;"></div>
-                        </div>
-                    </div>
-                </div>
+                <input type="range" class="form-range range-bar">
             </div>
             <div class="col">
                 <div class="dashboard-card text-center bg-white text-secondary py-4">
@@ -106,10 +98,8 @@
             </div>
             <div class="col">
                 <div class="dashboard-card text-center bg-white text-secondary py-4">
-                    <div class="dashboard-card">
-                        <h5 class="card-header">Conceitos</h5>
-                        <div id="piechart" style="width: 100%; height: 250px;"></div>
-                    </div>
+                    <h5 class="card-header">Frequências</h5>
+                    <div id="barchart" style="width: 100%; height: 200px;"></div>
                 </div>
             </div>
             <div class="col">
@@ -133,11 +123,9 @@
             </div>
             <div class="col">
                 <div class="dashboard-card text-center bg-white text-secondary py-4">
-                    <div class="card-header">
-                        Card 01
-                    </div>
-                    <div class="card-body">
-                        Lorem, ipsum dolor...
+                    <div class="dashboard-card">
+                        <h5 class="card-header">Conceitos</h5>
+                        <div id="piechart" style="width: 100%; height: 250px;"></div>
                     </div>
                 </div>
             </div>
@@ -163,16 +151,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-</body>
 
-</html>
 <script type="text/javascript">
 
     google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawCharts);
 
-    function drawChart() {
+    function drawCharts() {
+        drawBarChart();
+        drawPieChart();
+    }
 
+    function drawBarChart() {
         var data = google.visualization.arrayToDataTable([
             ['Element', 'Density', { role: 'style' }],
             ['Copper', 8.94, '#b87333'],
@@ -184,27 +174,28 @@
         var options = {};
 
         var chart = new google.visualization.BarChart(document.getElementById('barchart'));
-
         chart.draw(data, options);
     }
 
-    function drawChart() {
+    function drawPieChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Carro', 'Satisfação'],
-            ['Ferrari', 18],
-            ['Porsche', 17],
-            ['Lamborghini', 17],
-            ['Maserati', 19],
+            ['Conceito', 'Quantidade'],
+            ['A', 189],
+            ['B', 228],
+            ['C', 211],
+            ['D', 187],
         ]);
 
         var options = {
-            title: 'CARROS DE LUXO',
+            title: 'Conceitos',
             colors: ['#CCC', '#999', '#666', '#333'],
             is3D: true,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
         chart.draw(data, options);
     }
 </script>
+</body>
+
+</html>
