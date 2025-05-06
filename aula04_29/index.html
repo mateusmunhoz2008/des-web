@@ -4,10 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Header Exemplo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Dashboard Educacional</title>
 
     <style>
+        .dashboard-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         .redondo {
             border-bottom-left-radius: 50rem;
             border-bottom-right-radius: 50rem;
@@ -16,20 +25,58 @@
         .cor-de-fundo {
             background-color: #f0f1f2;
         }
+
+        .form-range {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        .offcanvas-body ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .offcanvas-body li {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .offcanvas-body li:hover {
+            background-color: #f0f0f0;
+        }
+
+        #mapchart {
+            width: 100%;
+            height: 500px;
+            min-height: 500px;
+        }
+
+        .modal-lg .modal-body {
+            padding: 0;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 
 <body class="cor-de-fundo">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark redondo">
         <div class="container d-flex flex-wrap align-items-center">
-            <img src="images.png" alt="Logo IFPR" width="50" class="rounded-circle mr-2">
+            <img src="images.png" alt="Logo IFPR" width="50" class="rounded-circle me-2">
 
-            <button class="btn btn-light position-relative mr-2">
+            <button class="btn btn-light position-relative me-2">
                 Novos Dados
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">57</span>
             </button>
 
-            <select class="form-control w-auto mr-2">
+            <select class="form-select w-auto me-2">
                 <option>Anual</option>
                 <option>Mensal</option>
                 <option>Semestral</option>
@@ -46,156 +93,297 @@
                 </div>
             </div>
 
-            <div class="mr-2">
+            <div class="me-2">
                 <input type="color" id="color" value="#9c9c9c" class="form-control p-1"
                     style="width: 40px; height: 38px;">
             </div>
 
             <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" type="button" id="maisDropdown" data-toggle="dropdown"
+                <button class="btn btn-light dropdown-toggle" type="button" id="maisDropdown" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Mais
                 </button>
-                <div class="dropdown-menu" aria-labelledby="maisDropdown">
-                    <a class="dropdown-item" href="#">Conceito</a>
-                    <a class="dropdown-item" href="#">Frequência</a>
-                    <a class="dropdown-item" href="#">Horas Afins</a>
-                </div>
+                <ul class="dropdown-menu" aria-labelledby="maisDropdown">
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#menuConceito">Conceito</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                            data-bs-target="#menuFrequencia">Frequência</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Horas Afins</a></li>
+                </ul>
             </div>
         </div>
     </nav>
+    <br>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col">
-                <div class="dashboard-card text-center bg-white text-secondary py-4">
-                    <h5>Conceito</h5>
+
+            <div class="col-md-2">
+                <div class="dashboard-card text-center py-4">
+                    <h5><i class="bi bi-mortarboard"></i>Conceito</h5>
                     <hr>
-                    <h2>B</h2>
+                    <h2 class="text-secondary">B</h2>
                 </div>
-            </div>
-            <div class="col">
-                <input type="range" class="form-range range-bar">
-            </div>
-            <div class="col">
-                <div class="dashboard-card text-center bg-white text-secondary py-4">
-                    <div class="card-header">
-                        Card 01
-                    </div>
-                    <div class="card-body">
-                        Lorem, ipsum dolor...
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="dashboard-card text-center bg-white text-secondary py-4">
-                    <h5>Frequência</h5>
+                <div class="dashboard-card text-center py-4">
+                    <h5><i class="bi bi-graph-up"></i>Frequência</h5>
                     <hr>
-                    <h2>89.5%</h2>
+                    <h2 class="text-secondary">89.5%</h2>
+                </div>
+                <div class="dashboard-card text-center py-4">
+                    <h5><i class="bi bi-clock-history"></i>Horas Afins</h5>
+                    <hr>
+                    <h2 class="text-secondary">74</h2>
                 </div>
             </div>
-            <div class="col">
-                <div class="dashboard-card text-center bg-white text-secondary py-4">
+            <div class="col-md-7">
+                <input type="range" class="form-range" min="1" max="5" step="1">
+                <div class="dashboard-card">
                     <h5 class="card-header">Frequências</h5>
                     <div id="barchart" style="width: 100%; height: 200px;"></div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="dashboard-card text-center bg-white text-secondary py-4">
-                    <div class="card-header">
-                        Card 01
-                    </div>
-                    <div class="card-body">
-                        Lorem, ipsum dolor...
-                    </div>
+                <div class="dashboard-card">
+                    <h5 class="card-header">Conceitos</h5>
+                    <div id="piechart" style="width: 100%; height: 250px;"></div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="dashboard-card text-center bg-white text-secondary py-4">
-                    <h5>Horas Afins</h5>
-                    <hr>
-                    <h2>74</h2>
+            <div class="col-md-3">
+                <div class="dashboard-card text-white">
+                    <table class="table table-sm table-dark mb-0">
+                        <thead>
+                            <tr class="bg-dark">
+                                <th class="text-white">Componente Curricular</th>
+                                <th class="text-white">Frequência(%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-dark-blue">
+                                <th class="text-white">Artes</th>
+                                <th class="text-white">89.5</th>
+                            </tr>
+                            <tr class="bg-dark">
+                                <th class="text-white">Biologia</th>
+                                <th class="text-white">92.2</th>
+                            </tr>
+                            <tr class="bg-dark-blue">
+                                <th class="text-white">Desenvolvimento Web</th>
+                                <th class="text-white">78.5</th>
+                            </tr>
+                            <tr class="bg-dark">
+                                <th class="text-white">Engenharia de Software</th>
+                                <th class="text-white">92.2</th>
+                            </tr>
+                            <tr class="bg-dark-blue">
+                                <th class="text-white">Geografia</th>
+                                <th class="text-white">95.8</th>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            <div class="col">
-                <div class="dashboard-card text-center bg-white text-secondary py-4">
-                    <div class="dashboard-card">
-                        <h5 class="card-header">Conceitos</h5>
-                        <div id="piechart" style="width: 100%; height: 250px;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="dashboard-card text-center bg-white text-secondary py-4">
-                    <div class="card-header">
-                        Card 01
-                    </div>
-                    <div class="card-body">
-                        Lorem, ipsum dolor...
-                    </div>
+                <div class="dashboard-card">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr style="background-color: #e0e0e2">
+                                <th>Conceitos</th>
+                                <th>Qtde Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background-color: #d0d0d1">
+                                <th>A</th>
+                                <th>189</th>
+                            </tr>
+                            <tr style="background-color: #e0e0e2">
+                                <th>B</th>
+                                <th>228</th>
+                            </tr>
+                            <tr style="background-color: #d0d0d1">
+                                <th>C</th>
+                                <th>211</th>
+                            </tr>
+                            <tr style="background-color: #e0e0e2">
+                                <th>D</th>
+                                <th>187</th>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-</body>
 
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuConceito">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title fs-2 fw-bold">Registro de Conceitos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body border border-5 m-0 p-0 d-flex align-items-center flex-column"
+            style="background-color: #dcdcdc; border-color: #f8f9fa; border-radius: 2.5vw;">
+            <div class="container bg-light border border-1 border-secondary rounded-3 d-flex flex-column mb-3"
+                style="width: 30vw; height: 27vh;">
+                <div class="fw-bold text-secondary">
+                    Disciplinas
+                </div>
+                <div class="border border-1 border-secondary rounded-3 w-100 me-2 mt-2"
+                    style="max-height: 25vh;overflow-y: auto;">
+                    <ul class="ps-0 ms-0">
+                        <li>Artes</li>
+                        <li style="background-color: #C1BEBF;">Biologia</li>
+                        <li>Desenvolvimento Web</li>
+                        <li style="background-color: #C1BEBF;">Engenharia de Software</li>
+                        <li>Geografia</li>
+                    </ul>
+                </div>
+            </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+            <div class="container bg-light border border-1 border-secondary rounded-3 mb-4"
+                style="width: 30vw; height: 25vh; line-height: 1">
+                <div class="fw-bold text-secondary mt-3 mb-2">
+                    Conceito
+                </div>
+                <div>
+                    <div>
+                        <input type="radio" name="Conceito" id="A">
+                        <label for="A" class="text-secondary">A</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="Conceito" id="B">
+                        <label for="B" class="text-secondary">B</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="Conceito" id="c">
+                        <label for="C" class="text-secondary">C</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="Conceito" id="D">
+                        <label for="D" class="text-secondary">D</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light border border-1 border-secondary rounded-3 d-flex align-items-center justify-content-center"
+                style="width: 30vw; height: 20vh;">
+                <div class="bg-light border border-1 border-secondary rounded-3 d-flex flex-row"
+                    style="width : 27vw;  height: 15vh">
+                    <div class="h-100 d-flex align-items-center justify-content-center"
+                        style="width: 5vw; background-color: #eaeff2;">
+                        OBS.
+                    </div>
+                    <textarea class="h-100" style="width: 22vw;"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<script type="text/javascript">
+    <div class="modal fade" id="menuFrequencia" tabindex="-1" aria-labelledby="menuFrequenciaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fs-3 fw-bold" id="menuFrequenciaLabel">MAPA DE FREQUÊNCIAS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div id="mapchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawCharts);
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    function drawCharts() {
-        drawBarChart();
-        drawPieChart();
-    }
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart', 'geochart'],
+            'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+        });
 
-    function drawBarChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Element', 'Density', { role: 'style' }],
-            ['Copper', 8.94, '#b87333'],
-            ['Silver', 10.49, 'silver'],
-            ['Gold', 19.30, 'gold'],
-            ['Platinum', 21.45, 'color: #e5e4e2'],
-        ]);
+        google.charts.setOnLoadCallback(drawCharts);
 
-        var options = {};
+        function drawCharts() {
+            drawBarChart();
+            drawPieChart();
+        }
 
-        var chart = new google.visualization.BarChart(document.getElementById('barchart'));
-        chart.draw(data, options);
-    }
+        function drawBarChart() {
+            var barData = google.visualization.arrayToDataTable([
+                ['Bimestre', 'Frequência', { role: 'style' }],
+                ['1º BIM', 89.5, 'color: #0e0e0f'],
+                ['2º BIM', 90.8, 'color: #53585e'],
+                ['3º BIM', 86.4, 'color: #0e0e0f'],
+                ['4º BIM', 87.3, 'color: #53585e'],
+            ]);
 
-    function drawPieChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Conceito', 'Quantidade'],
-            ['A', 189],
-            ['B', 228],
-            ['C', 211],
-            ['D', 187],
-        ]);
+            var barChart = new google.visualization.BarChart(document.getElementById('barchart'));
+            barChart.draw(barData, {
+                legend: { position: 'none' },
+                hAxis: {
+                    minValue: 86,
+                    maxValue: 91,
+                    format: '#\'%\''
+                },
+            });
+        }
 
-        var options = {
-            title: 'Conceitos',
-            colors: ['#CCC', '#999', '#666', '#333'],
-            is3D: true,
-        };
+        function drawPieChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Conceito', 'Quantidade'],
+                ['A', 189],
+                ['B', 228],
+                ['C', 211],
+                ['D', 187],
+            ]);
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(data, options);
-    }
-</script>
+            var options = {
+                colors: ['#CCC', '#999', '#666', '#333'],
+                is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+        }
+
+        function drawMapChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Country', 'Frequência'],
+                ['United States', 300],
+                ['Brazil', 400],
+                ['France', 600],
+                ['Japan', 500],
+            ]);
+
+            var options = {
+                region: 'world',
+                resolution: 'countries',
+                colorAxis: {
+                    colors: ['#adadad', '#959696', '#495057', '#343a40'],
+                    minValue: 300,
+                    maxValue: 600
+                },
+                backgroundColor: '#f0f1f2',
+                datalessRegionColor: '#d9d9d9',
+                defaultColor: '#f5f5f5',
+                legend: 'none',
+                tooltip: {
+                    textStyle: {
+                        fontSize: 12
+                    },
+                    showColorCode: true
+                }
+            };
+
+            var chart = new google.visualization.GeoChart(document.getElementById('mapchart'));
+            chart.draw(data, options);
+
+            window.addEventListener('resize', function () {
+                chart.draw(data, options);
+            });
+        }
+
+        document.getElementById('menuFrequencia').addEventListener('shown.bs.modal', function () {
+            drawMapChart();
+        });
+    </script>
 </body>
 
 </html>
