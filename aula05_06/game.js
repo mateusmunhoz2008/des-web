@@ -2,6 +2,7 @@ let segundos = 0;
 let minutos = 0;
 let horas = 0;
 let temporizador;
+let jogoPausado = false;
 
 const nave = document.getElementById('nave');
 let posicaoNave = 0;
@@ -14,9 +15,9 @@ let missil1Ativo = false;
 let missil2Ativo = false;
 let missil1Disparado = false;
 let missil2Disparado = false;
-missil1.style.left = posicaoNave + '%';
-missil2.style.left = posicaoNave + '%';
-let velocidadeMissil = 5;
+missil1.style.left = 0;
+missil2.style.left = posicaoNave;
+let velocidadeMissil = 30;
 
 function atualizarTemporizador() {
     segundos++;
@@ -36,10 +37,14 @@ function iniciarJogo() {
     if (!temporizador) {
         temporizador = setInterval(atualizarTemporizador, 1000);
     }
-
     document.addEventListener('keydown', tratarTeclaPressionada);
     document.addEventListener('keyup', tratarTeclaSolta);
-    
+    document.addEventListener('keydown', function (e) {
+        if (e.code === 'KeyP') {
+            pausar();
+        }
+    });
+
     loopJogo();
 }
 
@@ -55,14 +60,33 @@ function tratarTeclaSolta(e) {
     teclasPressionadas[e.key] = false;
 }
 
+function pausar() {
+    const overlay = document.getElementById('overlay');
+    const mensagem = document.getElementById('mensagem-pausa');
+    if (jogoPausado) {
+        temporizador = setInterval(atualizarTemporizador, 1000);
+        jogoPausado = false;
+        overlay.style.display = 'none';
+        mensagem.style.display = 'none';
+    } else {
+        clearInterval(temporizador);
+        temporizador = null;
+        jogoPausado = true;
+        overlay.style.display = 'block';
+        mensagem.style.display = 'block';
+    }
+}
+
 function loopJogo() {
-    moverNave();
-    moverMisseis();
+    if (!jogoPausado) {
+        moverNave();
+        moverMisseis();
+    }
     requestAnimationFrame(loopJogo);
 }
 
 function moverNave() {
-    if (teclasPressionadas['ArrowLeft'] && posicaoNave > -45) {
+    if (teclasPressionadas['ArrowLeft'] && posicaoNave > -25) {
         posicaoNave -= velocidadeNave;
     }
     if (teclasPressionadas['ArrowRight'] && posicaoNave < 45) {
@@ -92,7 +116,16 @@ function dispararMissil() {
         missil2.style.bottom = '60px';
         missil2.style.display = 'block';
     } else {
-        
+        missil1Ativo = false;
+        missil1Disparado = false;
+        missil1.style.left = posicaoNave + '%';
+        missil1.style.bottom = '20px';
+        missil1.style.display = 'block';
+        missil2Ativo = false;
+        missil2Disparado = false;
+        missil2.style.left = posicaoNave + '%';
+        missil2.style.bottom = '20px';
+        missil2.style.display = 'block';
     }
 }
 
