@@ -1,0 +1,15 @@
+// REACT APP
+npx create-react-app react-bootstrap
+
+// REACT-ROUTER-DOM
+npm install react-router-dom
+
+// STYLED-COMPONENTS
+npm install styled-components
+
+// BOOTSTRAP
+npm install react-bootstrap bootstrap
+
+// ADICIONAR AO ARQUIVO "./src/index.js":
+// Importing the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
