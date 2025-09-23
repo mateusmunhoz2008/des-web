@@ -20,7 +20,6 @@ export default class Curso extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  // Relacionamentos
   @hasMany(() => Aluno, { foreignKey: 'curso_id' })
   declare alunos: HasMany<typeof Aluno>
 
